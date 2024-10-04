@@ -1,0 +1,40 @@
+"builds": [
+  {
+    "src": "package.json",
+    "use": "@vercel/static-build",
+    "config": {
+      "installCommand": "npm install",
+      "buildCommand": "npm run build"
+    }
+  }
+]
+"routes": [
+  {
+    "src": "/about",
+    "dest": "about.html"
+  }
+]
+"rewrites": [
+  {
+    "src": "/blog",
+    "dest": "/blog/Godswill-webpages.html"
+  }
+]
+"redirects": [
+  {
+    "src": "/old-page",
+    "dest": "/new-page",
+    "permanent": false
+  }
+]
+"headers": [
+  {
+    "source": "/",
+    "headers": [
+      {
+        "key": "Content-Security-Policy",
+        "value": "default-src 'self';"
+      }
+    ]
+  }
+]
